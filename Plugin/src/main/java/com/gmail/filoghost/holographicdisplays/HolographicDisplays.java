@@ -47,8 +47,6 @@ import com.gmail.filoghost.holographicdisplays.util.ConsoleLogger;
 import com.gmail.filoghost.holographicdisplays.util.NMSVersion;
 import com.gmail.filoghost.holographicdisplays.util.VersionUtils;
 
-import me.filoghost.updatechecker.UpdateChecker;
-
 public class HolographicDisplays extends JavaPlugin {
 	
 	// The main instance of the plugin.
@@ -86,15 +84,6 @@ public class HolographicDisplays extends JavaPlugin {
 
 		// Load the configuration.
 		Configuration.load(this);
-		
-		if (Configuration.updateNotification) {
-			UpdateChecker.run(this, 75097, (String newVersion) -> {
-				HolographicDisplays.newVersion = newVersion;
-				ConsoleLogger.log(Level.INFO, "Found a new version available: " + newVersion);
-				ConsoleLogger.log(Level.INFO, "Download it on Bukkit Dev:");
-				ConsoleLogger.log(Level.INFO, "dev.bukkit.org/projects/holographic-displays");
-			});
-		}
 		
 		if (!NMSVersion.isValid()) {
 			printWarnAndDisable(
