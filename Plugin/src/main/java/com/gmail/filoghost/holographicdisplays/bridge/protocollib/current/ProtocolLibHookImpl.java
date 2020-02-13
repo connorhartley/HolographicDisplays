@@ -73,6 +73,7 @@ public class ProtocolLibHookImpl implements ProtocolLibHook {
 				PacketType.Play.Server.SPAWN_ENTITY,
 				PacketType.Play.Server.ENTITY_METADATA)
 			.serverSide()
+			.optionAsync()
 			.listenerPriority(ListenerPriority.NORMAL);
 		
 		ProtocolLibrary.getProtocolManager().addPacketListener(new PacketAdapter(params) {
